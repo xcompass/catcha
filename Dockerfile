@@ -18,6 +18,11 @@ EXPOSE 8080
 
 ADD . /app
 
+# AfPersistence/grails-app/conf/BuildConfig.groovy hard coded AfSecurity path. So we have to make a symbol link
+RUN ln -s plugins annotationframework \
+    && grails war \
+    && sed -e 's/localhost:3306/db:3306/' -e 's/catch_test/catch/' Catch-config.properties > catch-config.properties
+
 VOLUME ['/app/web-app/uploads']
 
 CMD ["grails", "run-war"]
