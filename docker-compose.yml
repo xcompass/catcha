@@ -16,7 +16,7 @@ services:
       - db
     volumes:
       - ".:/app"
-      - "./.data/app:/usr/local/tomcat/webapps/ROOT/uploads"
+      - "./.data/app:/app/web-app/uploads"
       - ".data/cache:/root/.grails/ivy-cache"
     command: ["grails", "run-app"]
     ports:

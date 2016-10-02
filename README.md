@@ -130,7 +130,7 @@ Once the docker containers are running, you can make changes to the files on the
 ### Check logs
 
 ```
-docker logs -f catch_app
+docker logs -f catch_app_1
 ```
 
 ### Stop application

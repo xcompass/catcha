@@ -18,4 +18,6 @@ EXPOSE 8080
 
 ADD . /app
 
-CMD ["grails", "run-war]
+VOLUME ['/app/web-app/uploads']
+
+CMD ["grails", "run-war"]
