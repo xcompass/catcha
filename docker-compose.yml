@@ -1,7 +1,7 @@
 version: '2'
 services:
   db:
-    image: mysql:5.7
+    image: mariadb:10.1
     volumes:
       - "./.data/db:/var/lib/mysql"
     restart: always
@@ -15,6 +15,10 @@ services:
     depends_on:
       - db
     volumes:
+      - ".:/app"
       - "./.data/app:/usr/local/tomcat/webapps/ROOT/uploads"
+      - ".data/cache:/root/.grails/ivy-cache"
+    command: ["grails", "run-app"]
     ports:
       - "8080:8080"
+
